@@ -23,7 +23,7 @@ def player_input(board):
         board[your_input-1] = current_player
     else:
         print("the spot was already played!!")
-        
+
 #We check if we have three similar symbols in a row, horizontally, vertically, or diagonally.
 #we check horizontally: 3 possibilities
 def check_horizontally(board):
@@ -61,7 +61,15 @@ def check_diagonally(board):
         winner = board[2]
         return True
 
+#we check if we have a winner
+def check_the_winner(board):
+    global game_is_running
+    if check_horizontally(board) or check_vertically(board) or check_diagonally(board):
+        print_board(board)
+        print(f"The winner is {winner}!")
+        game_is_running = False
 
 while game_is_running:
     print_board(board)
     player_input(board)
+    check_the_winner(board)
