@@ -69,7 +69,17 @@ def check_the_winner(board):
         print(f"The winner is {winner}!")
         game_is_running = False
 
+#we check if the game ends in a draw
+def check_if_draw(board):
+    global game_is_running
+    if "-" not in board:
+        print_board(board)
+        print("The game ends in a draw!")
+        game_is_running = False
+
+
 while game_is_running:
     print_board(board)
     player_input(board)
     check_the_winner(board)
+    check_if_draw(board)
