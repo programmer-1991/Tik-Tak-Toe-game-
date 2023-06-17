@@ -1,3 +1,4 @@
+import random 
 
 board = ["-", "-", "-",
          "-", "-", "-",
@@ -18,7 +19,7 @@ def print_board(board):
 
 #take player input
 def player_input(board):
-    your_input = int(input("choose a number between 1 and 9: "))
+    your_input = int(input("choose a number between 1 and 9: \n"))
     if board[your_input-1] == "-":
         board[your_input-1] = current_player
     else:
