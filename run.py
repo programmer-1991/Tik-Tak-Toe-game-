@@ -69,6 +69,15 @@ def check_the_winner(board):
         print(f"The winner is {winner}!")
         game_is_running = False
 
+#switch bettween players function
+def change_player():
+    global current_player
+    if current_player == "X":
+        current_player = "O"
+    else:
+        current_player = "X"
+
+
 #we check if the game ends in a draw
 def check_if_draw(board):
     global game_is_running
@@ -83,3 +92,4 @@ while game_is_running:
     player_input(board)
     check_the_winner(board)
     check_if_draw(board)
+    change_player()
