@@ -16,4 +16,12 @@ def print_board(board):
     print(line)
     print(board[6] + "|" + board[7] + "|" + board[8])
 
-print_board(board)
+#take player input
+def player_input(board):
+    your_input = int(input("choose a number between 1 and 9: "))
+    board[your_input-1] = current_player
+
+
+while game_is_running:
+    print_board(board)
+    player_input(board)
