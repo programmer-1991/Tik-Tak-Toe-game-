@@ -1,4 +1,4 @@
-import random 
+import random
 
 board = ["-", "-", "-",
          "-", "-", "-",
@@ -8,7 +8,8 @@ winner = None
 game_is_running = True
 line = "-----"
 
-#printing the game board
+# printing the game board
+
 
 def print_board(board):
     print(board[0] + "|" + board[1] + "|" + board[2])
@@ -17,7 +18,9 @@ def print_board(board):
     print(line)
     print(board[6] + "|" + board[7] + "|" + board[8])
 
-#take player input
+# take player input
+
+
 def player_input(board):
     your_input = int(input("choose a number between 1 and 9: \n"))
     if board[your_input-1] == "-":
@@ -25,9 +28,11 @@ def player_input(board):
     else:
         print("the spot was already played!!")
 
-#We check if we have three similar symbols in a row, horizontally, vertically, or diagonally.
-#we check horizontally: 3 possibilities
-def check_horizontally(board):
+
+# check horizontally: 3 possibilities
+
+
+def check_horizontal(board):
     global winner
     if board[0] == board[1] == board[2] and board[0] != "-":
         winner = board[0]
@@ -39,8 +44,10 @@ def check_horizontally(board):
         winner = board[6]
         return True
 
-#we check vertically: 3 possibilities
-def check_vertically(board):
+# check vertically: 3 possibilities
+
+
+def check_vertical(board):
     global winner
     if board[0] == board[3] == board[6] and board[0] != "-":
         winner = board[0]
@@ -51,9 +58,11 @@ def check_vertically(board):
     elif board[2] == board[5] == board[8] and board[2] != "-":
         winner = board[3]
         return True
-        
-#we check diagonally: 2 possibilities
-def check_diagonally(board):
+
+# check diagonally: 2 possibilities
+
+
+def check_diag(board):
     global winner
     if board[0] == board[4] == board[8] and board[0] != "-":
         winner = board[0]
@@ -62,15 +71,30 @@ def check_diagonally(board):
         winner = board[2]
         return True
 
-#we check if we have a winner
+# check if we have a winner
+
+
 def check_the_winner(board):
     global game_is_running
-    if check_horizontally(board) or check_vertically(board) or check_diagonally(board):
+    if check_horizontal(board) or check_vertical(board) or check_diag(board):
         print_board(board)
         print(f"The winner is {winner}!")
         game_is_running = False
 
-#switch bettween players function
+
+# check if the game ends in a draw
+
+
+def check_if_draw(board):
+    global game_is_running
+    if "-" not in board:
+        print_board(board)
+        print("The game ends in a draw!")
+        game_is_running = False
+
+# switch between players function
+
+
 def change_player():
     global current_player
     if current_player == "X":
@@ -78,14 +102,16 @@ def change_player():
     else:
         current_player = "X"
 
+# computer turn function
 
-#we check if the game ends in a draw
-def check_if_draw(board):
-    global game_is_running
-    if "-" not in board:
-        print_board(board)
-        print("The game ends in a draw!")
-        game_is_running = False
+
+def computer_turn(board):
+    global current_player
+    while current_player == "O":
+        cell_position = random.randint(0, 8)
+        if board[cell_position] == "-":
+            board[cell_position] = "O"
+            current_player = "X"
 
 
 while game_is_running:
@@ -94,3 +120,7 @@ while game_is_running:
     check_the_winner(board)
     check_if_draw(board)
     change_player()
+    computer_turn(board)
+    check_the_winner(board)
+    check_if_draw(board)
+
