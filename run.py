@@ -115,6 +115,7 @@ def computer_turn(board):
 
 # run the game
 
+
 while game_is_running:
     print_board(board)
     player_input(board)
@@ -124,4 +125,3 @@ while game_is_running:
     computer_turn(board)
     check_the_winner(board)
     check_if_draw(board)
-
