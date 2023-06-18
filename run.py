@@ -113,6 +113,7 @@ def computer_turn(board):
             board[cell_position] = "O"
             current_player = "X"
 
+# run the game
 
 while game_is_running:
     print_board(board)
