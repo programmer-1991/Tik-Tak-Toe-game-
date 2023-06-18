@@ -18,6 +18,7 @@ All cells on the grid are filled, but neither player has achieved a winning comb
 If a player wins or the game ends in a draw, both players have the option to play again.
 Tic-tac-toe is a game of strategy and foresight. Skilled players aim to create winning patterns while also blocking their opponent from doing the same. Due to the relatively simple nature of the game and limited grid size, optimal play will often result in a draw.
 ## Features
+
 ### Existing Features
 
 
@@ -38,9 +39,9 @@ Tic-tac-toe is a game of strategy and foresight. Skilled players aim to create w
 
 
 
-
 ## Testing 
-
+- PEP8
+    - No errors were returned from [PEP8 validator](https://pep8ci.herokuapp.com/)
 
 ### Bugs
 
@@ -67,7 +68,5 @@ You will need to mention unfixed bugs and why they were not fixed. This section 
 ### Content 
 
 
-
-### Media
 
 
